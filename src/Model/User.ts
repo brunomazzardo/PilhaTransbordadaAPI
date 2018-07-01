@@ -1,36 +1,36 @@
 import { sequelize } from "../Util/db"
 const Sequelize = require("sequelize")
-const Question = sequelize.define("Question", {
+const Users = sequelize.define("Users", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  title: {
+  email: {
     type: Sequelize.STRING
   },
   score: {
     type: Sequelize.INTEGER,
     defaultValue: 0
   },
-  content: {
-    type: Sequelize.JSONB
+  name: {
+    type: Sequelize.STRING
   }
 })
 
 
-Question.sync({force: false}).then(() => {
+Users.sync({force: false}).then(() => {
   // Table created
-  console.log("Question Table Synchronized")
+  console.log("User Table Synchronized")
 })
 
 
-interface QuestionType {
+interface UserType {
   id: number
-  title: string
+  email: string
   score: number
-  content: string
+  name: string
 }
 
 
-export { Question, QuestionType }
+export { Users, UserType }

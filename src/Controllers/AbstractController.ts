@@ -1,23 +1,20 @@
 import { Response } from "express"
 
 class ResponseEntity {
-
   content: any
-  status: HttpStatus
+  success: Boolean
   constructor(body: any, status: HttpStatus) {
     this.content = body
-    this.status = status
+    this.success = (status == HttpStatus.Success)
   }
 
 }
 
 export default class AbstractController {
-
-
-  response = (res: Response, body: any, status: HttpStatus) => {
-    res.send(new ResponseEntity(body, status))
+  response = (res: Response, body: any, status?: HttpStatus) => {
+     status = status ? status : HttpStatus.Success
+     res.status(status).send(new ResponseEntity(body, status))
   }
-
 
 }
 

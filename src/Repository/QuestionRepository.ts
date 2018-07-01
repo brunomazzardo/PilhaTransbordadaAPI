@@ -1,15 +1,15 @@
-import { Question, QuestionType } from "./Model/Question"
+import { Question, QuestionType } from "../Model/Question"
 
 
 
-class QuestionDAO {
+class QuestionRepository {
 
   constructor() {
   }
 
   saveQuestion = (question: QuestionType, callback: Function) => {
     console.log(JSON.stringify(question))
-   return Question.create(question, callback)
+    return Question.create(question, callback)
   }
 
   list = () => {
@@ -24,4 +24,4 @@ class QuestionDAO {
 
 
 
-export default new QuestionDAO()
+export default new QuestionRepository()
