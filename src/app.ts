@@ -18,5 +18,5 @@ app.use(Auth.validate)
  */
 app.get("/", login )
 
-app.listen(process.env.PORT, () => console.log("Oi gente"))
+app.listen(process.env.PORT || 3000, () => console.log("Oi gente"))
 
