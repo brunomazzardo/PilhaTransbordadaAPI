@@ -16,7 +16,6 @@ class Auth {
         if (err) {
           return res.json({ success: false, message: "Falha ao tentar autenticar o token!" })
         } else {
-
           console.log("OK")
           next()
         }
