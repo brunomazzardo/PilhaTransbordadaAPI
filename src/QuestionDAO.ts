@@ -8,7 +8,8 @@ class QuestionDAO {
   }
 
   saveQuestion = (question: QuestionType, callback: Function) => {
-    Question.create(question, callback)
+    console.log(JSON.stringify(question))
+   return Question.create(question, callback)
   }
 
   list = () => {

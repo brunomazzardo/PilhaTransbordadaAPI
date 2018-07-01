@@ -6,9 +6,10 @@ import  QuestionDAO  from "../QuestionDAO"
 class QuestionController {
 
 
-  addQuestion = (req: Request, res: Response) => {
-    QuestionDAO.saveQuestion(req.body.question, () => console.log(JSON.stringify(req.body.question)))
-    res.send("success")
+  addQuestion = async (req: Request, res: Response) => {
+    console.log(req.body)
+    const question = await QuestionDAO.saveQuestion(req.body.question, () => console.log(JSON.stringify(req.body.question)))
+    res.send(question)
   }
 
 
