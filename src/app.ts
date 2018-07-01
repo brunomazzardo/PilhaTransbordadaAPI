@@ -1,22 +1,21 @@
 
-import { Response } from "express";
-const bodyParser = require("body-parser");
-
-const express = require("express");
+import { Response } from "express"
+const bodyParser = require("body-parser")
+import { login } from "./Routes/LoginRoute"
+const express = require("express")
 // Create Express server
-const app = express();
-
+const app = express()
+import  Auth  from "./Util/Auth"
 // Express configuration
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 /**
  * Primary app routes.
  */
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
+app.get("/", login )
+app.use(Auth.validate)
 
-app.listen(3000, () => console.log("Oi gente"));
+app.listen(3000, () => console.log("Oi gente"))
 
