@@ -17,3 +17,23 @@ const Question = sequelize.define("Question", {
   }
 })
 
+
+Question.sync({force: true}).then(() => {
+  // Table created
+  return Question.create({
+    title: "Caqui travento é bom?",
+    score: 10,
+    content: "Teste"
+  })
+})
+
+
+interface QuestionType {
+  id: number
+  title: string
+  score: number
+  content: string
+}
+
+
+export { Question, QuestionType }
