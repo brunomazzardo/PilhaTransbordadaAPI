@@ -16,7 +16,7 @@ app.use(cors())
  */
 
 app.get("/", login )
-app.get("/question/", QuestionController.listQuestion)
-app.post("/question/create", QuestionController.addQuestion)
+app.get("/questions/", QuestionController.listQuestion)
+app.post("/questions/create", QuestionController.addQuestion)
 app.listen(process.env.PORT || 3000, () => console.log("Oi gente"))
 
