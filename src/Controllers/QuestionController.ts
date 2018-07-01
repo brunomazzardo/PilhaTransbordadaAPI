@@ -1,21 +1,28 @@
 import { Response, Request } from "express"
 import  QuestionDAO  from "../QuestionDAO"
+import AbstractController, { HttpStatus } from "./AbstractController"
 
 
 
-class QuestionController {
+class QuestionController extends AbstractController {
 
 
   addQuestion = async (req: Request, res: Response) => {
     console.log(req.body)
     const question = await QuestionDAO.saveQuestion(req.body.question, () => console.log(JSON.stringify(req.body.question)))
-    res.send(question)
+    this.response(res, question, HttpStatus.Success)
   }
 
 
-   listQuestion = async (req: Request, res: Response) => {
+  listQuestion = async (req: Request, res: Response) => {
     const list = await QuestionDAO.list()
-    res.send(list)
+    this.response(res, list, HttpStatus.Success)
+  }
+
+
+  getQuestionId = async (req: Request, res: Response) => {
+    const question = await QuestionDAO.getById(req.params.id)
+    res.send(question)
   }
 }
 

@@ -15,6 +15,10 @@ class QuestionDAO {
   list = () => {
     return Question.findAll()
   }
+
+  getById = (id: number) => {
+    return Question.findById(id)
+  }
 }
 
 
