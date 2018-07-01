@@ -8,7 +8,7 @@ class QuestionDAO {
   }
 
   saveQuestion = (question: QuestionType, callback: Function) => {
-    Question.save(question, callback)
+    Question.create(question, callback)
   }
 
   list = () => {

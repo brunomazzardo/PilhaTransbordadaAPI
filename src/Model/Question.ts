@@ -10,7 +10,8 @@ const Question = sequelize.define("Question", {
     type: Sequelize.STRING
   },
   score: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue:0
   },
   content: {
     type: Sequelize.JSONB
