@@ -1,16 +1,14 @@
-
-import { Response } from "express"
 const bodyParser = require("body-parser")
 import { login } from "./Controllers/LoginController"
+const cors = require("cors")
 const express = require("express")
 // Create Express server
 const app = express()
-import  Auth  from "./Util/Auth"
-import { sequelize } from "./Util/db"
 // Express configuration
 import QuestionController  from "./Controllers/QuestionController"
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
 
 
 /**
