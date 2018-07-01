@@ -6,7 +6,7 @@ const express = require("express")
 // Create Express server
 const app = express()
 import  Auth  from "./Util/Auth"
-import { sequelize } from "./db"
+import { sequelize } from "./Util/db"
 // Express configuration
 
 app.use(bodyParser.json())
