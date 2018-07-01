@@ -10,12 +10,13 @@ import  Auth  from "./Util/Auth"
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(Auth.validate)
+
 
 /**
  * Primary app routes.
  */
 app.get("/", login )
-app.use(Auth.validate)
 
 app.listen(3000, () => console.log("Oi gente"))
 
