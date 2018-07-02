@@ -10,6 +10,7 @@ import Auth from "./Util/Auth"
 import UserRouter from "./Routers/UserRouter"
 import QuestionRouter from "./Routers/QuestionRouter"
 import LoginRouter from "./Routers/LoginRouter"
+import AnswerRouter from "./Routers/AnswerRouter"
 const cors = require("cors")
 const express = require("express")
 
@@ -28,6 +29,7 @@ app.use(cors())
 app.post("/login", LoginRouter.router)
 app.use("/questions", Auth.validate, QuestionRouter.router)
 app.use("/users", Auth.validate, UserRouter.router)
+app.use("/answers", Auth.validate, AnswerRouter.router)
 
 app.listen(process.env.PORT || 3000, () => console.log("Oi gente"))
 

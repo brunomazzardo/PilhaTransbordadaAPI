@@ -1,6 +1,9 @@
 import { sequelize } from "../Util/db"
+import { Users } from "./User"
+import { Answer } from "./Answer"
+import { Comment } from "./Comment"
 const Sequelize = require("sequelize")
-const Question = sequelize.define("Question", {
+const Question = sequelize.define("question", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -18,11 +21,14 @@ const Question = sequelize.define("Question", {
   }
 })
 
-
-Question.sync({force: false}).then(() => {
-  // Table created
-  console.log("Question Table Synchronized")
+Question.belongsTo(Users)
+Question.hasMany(Answer, {as: "Answers", constraints: false})
+Question.belongsTo(Answer, {as: "RightAnswer"})
+Question.hasMany(Comment, {as: "Comments"})
+sequelize.sync({
+  force: false
 })
+
 
 
 interface QuestionType {

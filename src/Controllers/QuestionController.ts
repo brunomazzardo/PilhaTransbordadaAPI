@@ -24,6 +24,11 @@ class QuestionController extends AbstractController {
     const question = await QuestionRepository.getById(req.params.id)
     this.response(res, question)
   }
+
+  addAnswerToQuestion = async (req: Request, res: Response) => {
+    const question = await QuestionRepository.addAnswerToQuestion(req.body.answer, req.params.id)
+    this.response(res, question)
+  }
 }
 
 export default new QuestionController

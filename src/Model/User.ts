@@ -1,6 +1,6 @@
 import { sequelize } from "../Util/db"
 const Sequelize = require("sequelize")
-const Users = sequelize.define("Users", {
+const Users = sequelize.define("user", {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -19,10 +19,7 @@ const Users = sequelize.define("Users", {
 })
 
 
-Users.sync({force: false}).then(() => {
-  // Table created
-  console.log("User Table Synchronized")
-})
+
 
 
 interface UserType {

@@ -1,8 +1,13 @@
 import { Question, QuestionType } from "../Model/Question"
+import { Answer, AnswerType } from "../Model/Answer"
+import { CommentType, Comment } from "../Model/Comment"
+import AnswerRepository from "./AnswerRepository"
+import CommentRepository from "./CommentRepository"
 
 
 
 class QuestionRepository {
+
 
   constructor() {
   }
@@ -13,12 +18,28 @@ class QuestionRepository {
   }
 
   list = () => {
-    return Question.findAll()
+    return Question.findAll({ include: [{ all: true }]})
   }
 
-  getById = (id: number) => {
-    return Question.findById(id)
+  getById = (id: string) => {
+    return Question.findById(id, { include: [{ all: true }]})
   }
+
+  addAnswerToQuestion = async (answer: AnswerType, id: string) => {
+    answer.questionId = id
+    return AnswerRepository.saveQuestion(answer)
+  }
+
+  addCommentToQuestion = async (comment: CommentType, id: string) => {
+    comment.questionId = id
+    return CommentRepository.addCommentToQuestion(comment)
+  }
+
+  setAcceptedAnswer = async (answer: AnswerType) => {
+    const question =  await this.getById(answer.questionId)
+    return question.setRightAnswer(answer)
+  }
+
 }
 
 

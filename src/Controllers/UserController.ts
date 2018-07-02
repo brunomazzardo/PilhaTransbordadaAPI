@@ -3,6 +3,7 @@ import { Request, Response } from "express"
 import  UserRepository  from "../Repository/UserRepository"
 
 class UserController extends AbstractController {
+
   listUser = async (req: Request, res: Response) => {
     const users = await  UserRepository.listUsers()
     this.response(res, users)
