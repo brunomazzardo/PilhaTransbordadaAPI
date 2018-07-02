@@ -13,4 +13,27 @@ const sequelize = new Sequelize("d8omdtlehhme65", "wmaydkrnbqjwun", "756188cc608
     idle: 10000
   },
 })
+
 export {sequelize}
+
+
+
+// mysql local
+//
+// const pg = require("pg")
+// pg.defaults.ssl = true
+// const Sequelize = require("sequelize")
+//
+// // Or you can simply use a connection uri
+// const sequelize = new Sequelize("pilha", "root", "senha", {
+//   host: "localhost",
+//   dialect: "mysql",
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   },
+// })
+//
+// export {sequelize}

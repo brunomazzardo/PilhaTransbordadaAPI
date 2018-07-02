@@ -11,6 +11,7 @@ import UserRouter from "./Routers/UserRouter"
 import QuestionRouter from "./Routers/QuestionRouter"
 import LoginRouter from "./Routers/LoginRouter"
 import AnswerRouter from "./Routers/AnswerRouter"
+import { sequelize } from "./Util/db"
 const cors = require("cors")
 const express = require("express")
 
@@ -26,7 +27,7 @@ app.use(cors())
  * Primary app routes.
  */
 
-app.post("/login", LoginRouter.router)
+app.use("/login", LoginRouter.router)
 app.use("/questions", Auth.validate, QuestionRouter.router)
 app.use("/users", Auth.validate, UserRouter.router)
 app.use("/answers", Auth.validate, AnswerRouter.router)

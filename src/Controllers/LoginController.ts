@@ -19,4 +19,4 @@ class LoginController extends AbstractController {
 }
 
 
-export  default new LoginController()
+export  default new LoginController

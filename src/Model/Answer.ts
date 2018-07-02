@@ -14,7 +14,7 @@ const Answer = sequelize.define("answer", {
     defaultValue: 0
   },
   content: {
-    type: Sequelize.JSONB
+    type: Sequelize.JSON
   }
 })
 

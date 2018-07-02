@@ -13,7 +13,7 @@ const Comment = sequelize.define("comment", {
     defaultValue: 0
   },
   content: {
-    type: Sequelize.JSONB
+    type: Sequelize.JSON
   }
 })
 

@@ -17,7 +17,7 @@ const Question = sequelize.define("question", {
     defaultValue: 0
   },
   content: {
-    type: Sequelize.JSONB
+    type: Sequelize.JSON
   }
 })
 
