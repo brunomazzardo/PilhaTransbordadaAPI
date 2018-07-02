@@ -40,6 +40,9 @@ class QuestionRepository {
           include: [
             {
               model: Users
+            },
+            {
+              model: Comment, as : "Comments", include : [{model: Users}]
             }
           ]
         },
@@ -48,7 +51,7 @@ class QuestionRepository {
           as: "Comments",
           include: [
             {
-              "model": Users
+              model: Users
             }
           ]
         },
