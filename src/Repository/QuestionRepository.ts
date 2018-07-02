@@ -23,8 +23,40 @@ class QuestionRepository {
   }
 
   getById = (id: string) => {
-    return Question.findById(id, { include: [
-        {model: Answer, as : "RightAnswer" , include : [{model: Users}]}, {model: Answer, as : "Answers" , include : [{model: Users}]}, {model: Comment, as : "Comments" , include : [{model: Users}]}]})
+    return Question.findById(id, {
+      include: [
+        {
+          model: Answer,
+          as: "RightAnswer",
+          include: [
+            {
+              model: Users
+            }
+          ]
+        },
+        {
+          model: Answer,
+          as: "Answers",
+          include: [
+            {
+              model: Users
+            }
+          ]
+        },
+        {
+          model: Comment,
+          as: "Comments",
+          include: [
+            {
+              "model": Users
+            }
+          ]
+        },
+        {
+          model : Users
+        }
+      ]
+    })
   }
 
   addAnswerToQuestion = async (answer: AnswerType, id: string) => {
