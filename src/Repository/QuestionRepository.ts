@@ -1,5 +1,6 @@
 import { Question, QuestionType } from "../Model/Question"
 import { Answer, AnswerType } from "../Model/Answer"
+import { Users } from "../Model/User"
 import { CommentType, Comment } from "../Model/Comment"
 import AnswerRepository from "./AnswerRepository"
 import CommentRepository from "./CommentRepository"
@@ -22,7 +23,8 @@ class QuestionRepository {
   }
 
   getById = (id: string) => {
-    return Question.findById(id, { include: [{ all: true }]})
+    return Question.findById(id, { include: [
+        {model: Answer, as : "RightAnswer" , include : [{model: Users}]}, {model: Answer, as : "Answers" , include : [{model: Users}]}, {model: Comment, as : "Comments" , include : [{model: Users}]}]})
   }
 
   addAnswerToQuestion = async (answer: AnswerType, id: string) => {
