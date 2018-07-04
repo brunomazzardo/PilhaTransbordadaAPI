@@ -19,6 +19,8 @@ class QuestionRouter extends AbstractRouter {
     this.router.get("/:id", QuestionController.getQuestionId)
     this.router.post("/addAnswer/:id", validate, QuestionController.addAnswerToQuestion)
     this.router.post("/addComment/:id", validate, QuestionController.addCommentToQuestion)
+    this.router.post("/upvote/:id", validate, QuestionController.upVoteQuestion)
+    this.router.post("/downvote/:id", validate, QuestionController.downvoteQuestion)
   }
 }
 

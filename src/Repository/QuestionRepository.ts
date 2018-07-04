@@ -69,6 +69,17 @@ class QuestionRepository {
     return question.setCorrectAnswer(answer)
   }
 
+  upvoteQuestion = async (id: string) => {
+    const question = await this.getById(id)
+    question.score += 1
+    return question.save()
+  }
+
+  downvoteQuestion = async (id: string) => {
+    const question = await this.getById(id)
+    question.score -= 1
+    return question.save()
+  }
 }
 
 

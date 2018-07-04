@@ -23,6 +23,7 @@ Answer.hasMany(Comment, {as: "comments"})
 
 
 interface AnswerType {
+  userId: any
   questionId: string
   id: string
   score: number
