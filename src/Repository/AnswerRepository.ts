@@ -26,6 +26,23 @@ class AnswerRepository {
     return QuestionRepository.setAcceptedAnswer(answer)
   }
 
+
+  getById = (id: string) => {
+    return Answer.findById(id)
+  }
+
+
+  upvoteAnswer = async (id: string) => {
+    const answer = await this.getById(id)
+    answer.score += 1
+    return answer.save()
+  }
+
+  downvoteAnswer = async (id: string) => {
+    const answer = await this.getById(id)
+    answer.score -= 1
+    return answer.save()
+  }
 }
 
 
