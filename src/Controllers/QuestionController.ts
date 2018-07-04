@@ -1,6 +1,7 @@
 import { Response, Request } from "express"
 import  QuestionRepository  from "../Repository/QuestionRepository"
 import AbstractController, { HttpStatus } from "./AbstractController"
+import { QuestionType } from "../Model/Question"
 
 
 
@@ -22,6 +23,8 @@ class QuestionController extends AbstractController {
 
   getQuestionId = async (req: Request, res: Response) => {
     const question = await QuestionRepository.getById(req.params.id)
+    if (!!question.correctAnswer)
+        question.answers =  question.answers.filter((question: QuestionType) => question.id != question.correctAnswerId )
     this.response(res, question)
   }
 

@@ -1,17 +1,11 @@
-import UserController from "./Controllers/UserController"
-
 const bodyParser = require("body-parser")
-import LoginController from "./Controllers/LoginController"
 const unless = require("express-unless")
 
 // Express configuration
-import QuestionController  from "./Controllers/QuestionController"
-import Auth from "./Util/Auth"
 import UserRouter from "./Routers/UserRouter"
 import QuestionRouter from "./Routers/QuestionRouter"
 import LoginRouter from "./Routers/LoginRouter"
 import AnswerRouter from "./Routers/AnswerRouter"
-import { sequelize } from "./Util/db"
 const cors = require("cors")
 const express = require("express")
 

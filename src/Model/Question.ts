@@ -32,6 +32,7 @@ sequelize.sync({
 
 
 interface QuestionType {
+  correctAnswerId: number
   id: number
   title: string
   score: number
