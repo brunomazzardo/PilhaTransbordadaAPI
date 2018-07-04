@@ -26,6 +26,8 @@ class QuestionController extends AbstractController {
     const question = await QuestionRepository.getById(req.params.id)
     if (!!question.correctAnswer) {
         question.answers =  question.answers.filter((answer: AnswerType) => {
+          console.log(JSON.stringify(answer))
+          console.log(JSON.stringify(question))
           return answer.id != question.correctAnswerId
         })
     }
