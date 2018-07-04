@@ -21,10 +21,10 @@ const Question = sequelize.define("question", {
   }
 })
 
-Question.belongsTo(Users)
-Question.hasMany(Answer, {as: "Answers", constraints: false})
-Question.belongsTo(Answer, {as: "RightAnswer"})
-Question.hasMany(Comment, {as: "Comments"})
+Question.belongsTo(Users, {as : "user"})
+Question.hasMany(Answer, {as: "answers", constraints: false})
+Question.belongsTo(Answer, {as: "correctAnswer"})
+Question.hasMany(Comment, {as: "comments"})
 sequelize.sync({
   force: false
 })

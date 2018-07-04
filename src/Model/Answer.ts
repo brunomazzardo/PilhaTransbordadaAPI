@@ -18,8 +18,8 @@ const Answer = sequelize.define("answer", {
   }
 })
 
-Answer.belongsTo(Users)
-Answer.hasMany(Comment, {as: "Comments"})
+Answer.belongsTo(Users, {as : "user"})
+Answer.hasMany(Comment, {as: "comments"})
 
 
 interface AnswerType {

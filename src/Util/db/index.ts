@@ -35,5 +35,5 @@ export {sequelize}
 //     idle: 10000
 //   },
 // })
-//
+
 // export {sequelize}

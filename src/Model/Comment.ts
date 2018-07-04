@@ -17,7 +17,7 @@ const Comment = sequelize.define("comment", {
   }
 })
 
-Comment.belongsTo(Users)
+Comment.belongsTo(Users, {as : "user"})
 
 
 interface CommentType {

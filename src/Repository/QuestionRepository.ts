@@ -27,36 +27,36 @@ class QuestionRepository {
       include: [
         {
           model: Answer,
-          as: "RightAnswer",
+          as: "correctAnswer",
           include: [
             {
-              model: Users
+              model: Users, as : "user"
             }
           ]
         },
         {
           model: Answer,
-          as: "Answers",
+          as: "answers",
           include: [
             {
-              model: Users
+              model: Users, as : "user"
             },
             {
-              model: Comment, as : "Comments", include : [{model: Users}]
+              model: Comment, as : "comments", include : [{model: Users, as : "user"}]
             }
           ]
         },
         {
           model: Comment,
-          as: "Comments",
+          as: "comments",
           include: [
             {
-              model: Users
+              model: Users, as : "user"
             }
           ]
         },
         {
-          model : Users
+          model : Users, as : "user"
         }
       ]
     })
