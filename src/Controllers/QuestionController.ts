@@ -28,7 +28,7 @@ class QuestionController extends AbstractController {
         question.answers =  question.answers.filter((answer: AnswerType) => {
           console.log(JSON.stringify(answer.questionId))
           console.log(JSON.stringify(question.correctAnswerId))
-          return answer.id != question.correctAnswerId
+          return answer.id !== question.correctAnswerId
         })
     }
     this.response(res, question)
