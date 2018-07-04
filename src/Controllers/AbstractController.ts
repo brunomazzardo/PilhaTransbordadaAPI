@@ -12,6 +12,7 @@ class ResponseEntity {
 
 export default class AbstractController {
   response = (res: Response, body: any, status?: HttpStatus) => {
+    console.log(JSON.stringify(body))
      status = status ? status : HttpStatus.Success
      res.status(status).send(new ResponseEntity(body, status))
   }
