@@ -15,6 +15,7 @@ class AnswerRouter extends AbstractRouter {
     this.router = express.Router()
     const validate =  Auth.validate
     this.router.get("/accept/:id", validate, AnswerController.acceptAnswer)
+    this.router.post("/addComent/:id", validate, AnswerController.addComment)
   }
 }
 

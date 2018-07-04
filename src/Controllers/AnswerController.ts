@@ -11,6 +11,10 @@ class AnswerController extends AbstractController {
     const question = await AnswerRepository.acceptAnswer(req.params.id)
     this.response(res, question)
   }
+  addComment = async  (req: Request, res: Response) => {
+    const comment = await AnswerRepository.addCommentToAnswer(req.body.comment,req.params.id)
+    this.response(res, comment)
+  }
 }
 
 export default new AnswerController
