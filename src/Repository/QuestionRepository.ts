@@ -28,21 +28,27 @@ class QuestionRepository {
         {
           model: Answer,
           as: "correctAnswer",
-          include: [{model: Users, as : "user"}]
+          include: [{
+            model: Users, as : "user"
+          }]
         },
         {
           model: Answer,
           as: "answers",
-          include: [{model: Users, as : "user"}, {
-              model: Comment, as : "comments", include : [{model: Users, as : "user"}]
-            }
-          ]
+          include: [{
+            model: Users, as : "user"}, {model: Comment, as : "comments", include : [{model: Users, as : "user"}]
+          }]
         },
         {
-          model: Comment, as: "comments", include: [{model: Users, as : "user"}]
+          model: Comment,
+          as: "comments",
+          include: [{
+            model: Users, as : "user"
+          }]
         },
         {
-          model : Users, as : "user"
+          model : Users,
+          as : "user"
         }
       ]
     })
