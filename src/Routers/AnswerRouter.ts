@@ -17,8 +17,8 @@ class AnswerRouter extends AbstractRouter {
     const validate =  Auth.validate
     this.router.get("/accept/:id", validate, AnswerController.acceptAnswer)
     this.router.post("/addComent/:id", validate, AnswerController.addComment)
-    this.router.get("/upvote/:id", validate, AnswerController.upvoteAnswer)
-    this.router.get("/downvote/:id", validate, AnswerController.downvoteAnswer)
+    this.router.post("/upvote/:id", validate, AnswerController.upvoteAnswer)
+    this.router.post("/downvote/:id", validate, AnswerController.downvoteAnswer)
   }
 }
 
