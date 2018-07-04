@@ -43,7 +43,7 @@ class QuestionController extends AbstractController {
   }
 
   addCommentToQuestion = async (req: Request, res: Response) => {
-    const comment  = req.body.question
+    const comment  = req.body.comment
     comment.userId = req.params.user.id
     const question = await QuestionRepository.addCommentToQuestion(req.body.comment, req.params.id)
     this.response(res, question)
