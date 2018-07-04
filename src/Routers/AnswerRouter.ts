@@ -3,6 +3,7 @@ import * as express from "express"
 import { Router } from "express"
 import { AbstractRouter } from "./AbstractRouter"
 import AnswerController from "../Controllers/AnswerController"
+import Auth from "../Util/Auth"
 
 
 class AnswerRouter extends AbstractRouter {
@@ -12,8 +13,8 @@ class AnswerRouter extends AbstractRouter {
   constructor() {
     super()
     this.router = express.Router()
-
-    this.router.get("/accept/:id", AnswerController.acceptAnswer)
+    const validate =  Auth.validate
+    this.router.get("/accept/:id", validate, AnswerController.acceptAnswer)
   }
 }
 

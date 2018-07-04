@@ -28,9 +28,9 @@ app.use(cors())
  */
 
 app.use("/login", LoginRouter.router)
-app.use("/questions", Auth.validate, QuestionRouter.router)
-app.use("/users", Auth.validate, UserRouter.router)
-app.use("/answers", Auth.validate, AnswerRouter.router)
+app.use("/questions" , QuestionRouter.router)
+app.use("/users", UserRouter.router)
+app.use("/answers",  AnswerRouter.router)
 
 app.listen(process.env.PORT || 3000, () => console.log("Oi gente"))
 
